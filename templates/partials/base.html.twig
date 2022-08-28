@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<!-- Header -->
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} | DN F&B SSO{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="DN F&B SSO" name="description" />
+    <meta content="Dylan Ngo" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- Block Stylesheets -->
+    {% block stylesheets %}{% endblock %}
+</head>
+<!-- Body -->
+<body data-sidebar="dark">
+
+    <div id="layout-wrapper">
+
+        {{ include('partials/topbar.html.twig') }}
+        {{ include('partials/sidebar.html.twig') }}
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+            {% block body %}{% endblock %}
+            {{ include('partials/footer.html.twig') }}
+        </div>
+        <!-- end main content-->
+
+        {{ include('partials/vendor-scripts.html.twig') }}
+    </div>
+    {% block javascripts %}{% endblock %}
+
+</body>
+</html>
