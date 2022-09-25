@@ -24,6 +24,6 @@ class AdminUserExtension extends Extension
 
 	public function getAlias(): string
 	{
-		return 'sso_admin_user';
+		return 'central_admin_user';
 	}
 }

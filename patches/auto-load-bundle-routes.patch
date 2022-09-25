@@ -1,0 +1,20 @@
+diff --git a/vendor/symfony/framework-bundle/Kernel/MicroKernelTrait.php b/vendor/symfony/framework-bundle/Kernel/MicroKernelTrait.php
+index dbf77b3..b368fa2 100644
+--- a/vendor/symfony/framework-bundle/Kernel/MicroKernelTrait.php
++++ b/vendor/symfony/framework-bundle/Kernel/MicroKernelTrait.php
+@@ -86,6 +86,15 @@ trait MicroKernelTrait
+         if (false !== ($fileName = (new \ReflectionObject($this))->getFileName())) {
+             $routes->import($fileName, 'annotation');
+         }
++
++		// Custom auto load routes from custom bundle
++		foreach ($this->getBundles() as $bundle) {
++			$bundleRouteConfig = $bundle->getPath() . '/config/routes.yaml';
++			if (is_file($bundleRouteConfig)) {
++				$routes->import($bundleRouteConfig);
++			}
++		}
++
+     }
+ 
+     /**
