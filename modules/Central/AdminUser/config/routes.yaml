@@ -1,0 +1,3 @@
+sso_admin_user:
+    resource: ../src/Controller/
+    type: attribute
